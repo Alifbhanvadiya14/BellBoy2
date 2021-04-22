@@ -1,5 +1,6 @@
 import 'package:day_picker/day_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 import 'colors.dart';
 
@@ -175,9 +176,10 @@ class _RepeatBookingState extends State<RepeatBooking> {
               ? Container(
                   width: MediaQuery.of(context).size.width / 3,
                   child: TextField(
+                    readOnly: true,
                     decoration: InputDecoration(
                       isDense: true,
-                      contentPadding: EdgeInsets.all(8),
+                      contentPadding: EdgeInsets.all(6),
                       border: OutlineInputBorder(),
                     ),
                   ),
@@ -200,6 +202,7 @@ class _RepeatBookingState extends State<RepeatBooking> {
               ? Container(
                   width: MediaQuery.of(context).size.width / 3,
                   child: TextField(
+                    onTap: () {},
                     decoration: InputDecoration(
                       isDense: true,
                       contentPadding: EdgeInsets.all(8),
@@ -220,7 +223,9 @@ class _RepeatBookingState extends State<RepeatBooking> {
             ),
             height: 40,
             minWidth: double.infinity,
-            onPressed: () {},
+            onPressed: () {
+              showDatePicker();
+            },
             color: primaryColor,
             child: Text(
               "Return",
@@ -323,5 +328,17 @@ class _RepeatBookingState extends State<RepeatBooking> {
         )
       ],
     );
+  }
+
+  showDatePicker() {
+    return SfDateRangePicker(
+      view: DateRangePickerView.month,
+      onSelectionChanged: _onSelectionChanged,
+      selectionMode: DateRangePickerSelectionMode.multiple,
+    );
+  }
+
+  void _onSelectionChanged(DateRangePickerSelectionChangedArgs args) {
+    // TODO: implement your code here
   }
 }

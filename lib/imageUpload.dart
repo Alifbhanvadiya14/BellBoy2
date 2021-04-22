@@ -307,41 +307,42 @@ class _ImageUploadState extends State<ImageUpload> {
   }
 
   showImageUploadOptions(BuildContext context) {
-    return showModalBottomSheet(
-      context: context,
-      builder: (context) {
-        return Container(
-          height: 80,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(12),
-              topRight: Radius.circular(12),
-            ),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              ElevatedButton.icon(
-                  onPressed: () {
-                    pickImage(ImageSource.camera).whenComplete(
-                      () => Navigator.pop(context),
-                    );
-                  },
-                  icon: Icon(Icons.camera_alt),
-                  label: Text("Camera")),
-              ElevatedButton.icon(
-                onPressed: () {
-                  pickImage(ImageSource.gallery).whenComplete(
-                    () => Navigator.pop(context),
-                  );
-                },
-                icon: Icon(Icons.photo_sharp),
-                label: Text("Gallery"),
-              )
-            ],
-          ),
-        );
-      },
-    );
+    pickImage(ImageSource.gallery);
+    // return showModalBottomSheet(
+    //   context: context,
+    //   builder: (context) {
+    //     return Container(
+    //       height: 80,
+    //       decoration: BoxDecoration(
+    //         borderRadius: BorderRadius.only(
+    //           topLeft: Radius.circular(12),
+    //           topRight: Radius.circular(12),
+    //         ),
+    //       ),
+    //       child: Row(
+    //         mainAxisAlignment: MainAxisAlignment.spaceAround,
+    //         children: [
+    //           ElevatedButton.icon(
+    //               onPressed: () {
+    //                 pickImage(ImageSource.camera).whenComplete(
+    //                   () => Navigator.pop(context),
+    //                 );
+    //               },
+    //               icon: Icon(Icons.camera_alt),
+    //               label: Text("Camera")),
+    //           ElevatedButton.icon(
+    //             onPressed: () {
+    //               pickImage(ImageSource.gallery).whenComplete(
+    //                 () => Navigator.pop(context),
+    //               );
+    //             },
+    //             icon: Icon(Icons.photo_sharp),
+    //             label: Text("Gallery"),
+    //           )
+    //         ],
+    //       ),
+    //     );
+    //   },
+    // );
   }
 }

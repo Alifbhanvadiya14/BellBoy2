@@ -1,4 +1,5 @@
 import 'package:application/Shared/dialogs.dart';
+import 'package:application/Shared/drawer.dart';
 import 'package:application/teamBooking.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
@@ -81,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: Drawer(),
+        drawer: drawer(context),
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
           child: MaterialButton(
@@ -816,6 +817,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 }),
                 // child: Icon(Icons.settings),.
                 child: PopupMenuButton(
+                  offset: Offset(0, 60),
                   icon: Icon(
                     Icons.settings,
                     // color: appStore.textPrimaryColor,
